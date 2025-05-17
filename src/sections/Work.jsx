@@ -93,7 +93,7 @@ const worksData = [
 
 const Work = () => {
   return (
-    <section className="section-padding w-full">
+    <section id="work" className="section-padding w-full">
       <TitleHeader title="Projects" sub="💼 My Works" />
       <br />
       <br />
