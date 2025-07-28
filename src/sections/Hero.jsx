@@ -2,9 +2,12 @@ import Button from "../components/Button";
 
 const Hero = () => {
   return (
-    <section id="hero" className="hero-section relative overflow-hidden text-white">
-      {/* Background image */}
-      <div className="hero-bg absolute top-0 left-0 w-full h-full z-0 opacity-80">
+    <section
+      id="hero"
+      className="hero-section relative overflow-hidden text-white bg-black"
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 opacity-80">
         <img
           src="/images/bg.png"
           alt="background tech mesh"
@@ -12,34 +15,35 @@ const Hero = () => {
         />
       </div>
 
-      {/* Content Layout */}
-      <div className="hero-layout z-10 relative">
-        <header className="hero-content flex flex-col justify-center px-5 md:px-20">
-          <div className="hero-text-group flex flex-col gap-7">
-            <div className="hero-text">
-              <h1>
-                Building Reliable{" "}
-                <span className="gradient-text-blue">FullStack</span>{" "}
-                Systems
-              </h1>
-              <h1>
-                with <span className="gradient-text-violet">DevOps</span>{" "}
-                Precision
-              </h1>
-            </div>
-
-            <p className="hero-subtext text-white-50 md:text-xl relative z-10">
-              I'm <span className="gradient-text-violet">Jagan Kumar Hotta</span>{" "} — a full stack and DevOps engineer blending robust backend
-              systems with CI/CD pipelines to deliver scalable, efficient solutions.
-            </p>
-
-            <Button
-              text="Explore My Projects"
-              className="btn-primary md:w-80 md:h-16 w-60 h-12"
-              id="counter"
-            />
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 py-24 md:py-32 flex flex-col justify-center items-start min-h-screen">
+        <div className="flex flex-col gap-8">
+          <div className="space-y-2">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+              Building Reliable{" "}
+              <span className="gradient-text-blue">FullStack</span> Systems
+            </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+              with <span className="gradient-text-violet">DevOps</span>{" "}
+              Precision
+            </h1>
           </div>
-        </header>
+
+          <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
+            I'm{" "}
+            <span className="gradient-text-violet font-semibold">
+              Jagan Kumar Hotta
+            </span>{" "}
+            — a Full Stack and DevOps engineer blending robust backend systems
+            with CI/CD pipelines to deliver scalable, efficient solutions.
+          </p>
+
+          <Button
+            text="Explore My Projects"
+            className="btn-primary w-52 h-12 sm:w-64 sm:h-14 md:w-80 md:h-16 text-base sm:text-lg"
+            id="counter"
+          />
+        </div>
       </div>
     </section>
   );

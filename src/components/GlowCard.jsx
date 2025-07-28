@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-const GlowCard = ({ index, children }) => {
+const GlowCard = ({ index, children, footer }) => {
   const cardRefs = useRef([]);
 
   const handleMouseMove = (index) => (e) => {
@@ -20,21 +20,25 @@ const GlowCard = ({ index, children }) => {
     <div
       ref={(el) => (cardRefs.current[index] = el)}
       onMouseMove={handleMouseMove(index)}
-      className="card card-border timeline-card rounded-xl p-6 mb-5 min-h-[550px] flex flex-col justify-between bg-black/90 shadow-lg backdrop-blur-md relative"
+      className="relative card card-border rounded-xl p-6 min-h-[600px] flex flex-col justify-between bg-black/90 shadow-lg backdrop-blur-md"
     >
-      {/* Ensure glow does not block interactions */}
-      <div className="glow pointer-events-none absolute inset-0" />
+      {/* Glow Effect */}
+      <div className="glow pointer-events-none absolute inset-0 z-0" />
 
-      <div className="flex items-center gap-1 mb-5">
+      {/* Top section (Stars or other content) */}
+      <div className="flex items-center gap-1 mb-3 z-10 relative">
         {Array.from({ length: 5 }, (_, i) => (
           <img key={i} src="/images/star.png" alt="star" className="size-5" />
         ))}
       </div>
 
-      {/* Actual content passed from parent */}
-      <div className="flex flex-col justify-between flex-grow pointer-events-none">
+      {/* Main content */}
+      <div className="flex flex-col justify-between flex-grow relative z-10">
         {children}
       </div>
+
+      {/* Footer fixed to bottom-left */}
+      {footer && <div className="absolute bottom-10 left-10 z-10">{footer}</div>}
     </div>
   );
 };

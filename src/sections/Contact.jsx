@@ -1,8 +1,11 @@
-import { useRef, useState } from "react";
+import { useRef, useState, lazy, Suspense } from "react";
 import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
-import ContactExperience from "../components/models/contact/ContactExperience";
+
+const ContactExperience = lazy(() =>
+  import("../components/models/contact/ContactExperience")
+);
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -15,12 +18,12 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
 
     try {
       await emailjs.sendForm(
@@ -30,12 +33,13 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
 
-      // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+      alert("✅ Message sent successfully!");
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      alert("❌ Failed to send message. Try again later.");
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
@@ -46,7 +50,9 @@ const Contact = () => {
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
+
         <div className="grid-12-cols mt-16">
+          {/* Form */}
           <div className="xl:col-span-5">
             <div className="flex-center card-border rounded-xl p-10">
               <form
@@ -55,7 +61,7 @@ const Contact = () => {
                 className="w-full flex flex-col gap-7"
               >
                 <div>
-                  <label htmlFor="name">Your name</label>
+                  <label htmlFor="name">Your Name</label>
                   <input
                     type="text"
                     id="name"
@@ -64,6 +70,8 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="What’s your good name?"
                     required
+                    aria-required="true"
+                    aria-label="Name"
                   />
                 </div>
 
@@ -77,6 +85,8 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="What’s your email address?"
                     required
+                    aria-required="true"
+                    aria-label="Email"
                   />
                 </div>
 
@@ -90,6 +100,8 @@ const Contact = () => {
                     placeholder="How can I help you?"
                     rows="5"
                     required
+                    aria-required="true"
+                    aria-label="Message"
                   />
                 </div>
 
@@ -107,9 +119,17 @@ const Contact = () => {
               </form>
             </div>
           </div>
+
+          {/* 3D Contact Model */}
           <div className="xl:col-span-7 min-h-96">
             <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+              <Suspense
+                fallback={
+                  <div className="p-10 text-white">Loading 3D scene...</div>
+                }
+              >
+                <ContactExperience />
+              </Suspense>
             </div>
           </div>
         </div>
