@@ -1,3 +1,5 @@
+import { FaMedium, FaGithub, FaLinkedin } from "react-icons/fa";
+
 const navLinks = [
   {
     name: "Work",
@@ -35,24 +37,6 @@ const counterItems = [
   { value: 90, suffix: "%", label: "Client Retention Rate" },
 ];
 
-const abilities = [
-  {
-    imgPath: "/images/seo.png",
-    title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
-  },
-  {
-    imgPath: "/images/chat.png",
-    title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
-  },
-  {
-    imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
-  },
-];
-
 const techStackImgs = [
   {
     name: "React Developer",
@@ -76,54 +60,111 @@ const techStackImgs = [
   },
 ];
 
+const abilities = [
+  {
+    imgPath: "/images/seo.png",
+    title: "Quality Focus",
+    desc: "Delivering high-quality results while maintaining attention to every detail.",
+  },
+  {
+    imgPath: "/images/chat.png",
+    title: "Reliable Communication",
+    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+  },
+  {
+    imgPath: "/images/time.png",
+    title: "On-Time Delivery",
+    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+  },
+];
+
 const techStackIcons = [
   {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
+    name: "React",
+    imgPath: "/images/React.png",
   },
 
   {
-    name: "FullStack Developer",
-    modelPath: "/models/node-transformed_backend.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
+    name: "NodeJS",
+    imgPath: "/images/Node.js.png",
   },
   {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
+    name: "Python-Frameworks",
+    imgPath: "/images/FastAPI.png",
   },
   {
-    name: "DevOps Engineer",
-    modelPath: "/models/3d_github_logo.glb",
-    scale: 5,
-    rotation: [0, 0, 0],
+    name: "Spring-Boot",
+    imgPath: "/images/Spring.png",
   },
   {
-    name: "Cloud Engineer",
-    modelPath: "/models/aws_logo.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
+    name: "AWS",
+    imgPath: "/images/AWS.png",
   },
-  // {
-  //   name: "Project Manager",
-  //   modelPath: "/models/git-svg-transformed.glb",
-  //   scale: 0.05,
-  //   rotation: [0, -Math.PI / 4, 0],
-  // },
+  {
+    name: "NestJS",
+    imgPath: "/images/nestjs.png",
+  },
+  {
+    name: "NextJS",
+    imgPath: "/images/nextjs.png",
+  },
+  {
+    name: "Typescript",
+    imgPath: "/images/typescript.png",
+  },
+  {
+    name: "Ansible",
+    imgPath: "/images/ansible.png",
+  },
+  {
+    name: "Docker",
+    imgPath: "/images/docker.png",
+  },
+  {
+    name: "Kubernetes",
+    imgPath: "/images/kubernetes.png",
+  },
+  {
+    name: "Git",
+    imgPath: "/images/git.png",
+  },
+  {
+    name: "PostgreSQL",
+    imgPath: "/images/postgresql.png",
+  },
+  {
+    name: "GCP",
+    imgPath: "/images/gcp.png",
+  },
+  {
+    name: "NGINX",
+    imgPath: "/images/nginx.png",
+  },
 ];
 
 const expCards = [
   {
-    companyName: "ConvertAPI", // ✅ Added for styled text
+    companyName: "Iabsis-SARL",
+    title: "Backend Developer",
+    date: "May 2025 – Present",
+    logoPath: "/images/logo2.png",
+    review:
+      "Jagan's backend engineering expertise at Iabsis-SARL has been instrumental in elevating the real-time consultation experience on the HCW-home platform. His thoughtful architectural decisions and seamless integration of live features significantly enhanced reliability, user interaction, and overall session quality.",
+    responsibilities: [
+      "Architected and deployed a scalable NestJS backend on Kubernetes, could handle heavy users with NGINX-based load balancing and autoscaling.",
+      "Integrated Mediasoup to enable low-latency WebRTC audio/video with dynamic producer-consumer management and real-time connection diagnostics.",
+      "Developed a resilient WebSocket-based messaging system with authentication, retry logic, and <200ms latency for live communication and system events.",
+      "Implemented robust observability and failover mechanisms (Prometheus, Grafana, health checks), ensuring 99.9% uptime and seamless recovery.",
+    ],
+  },
+
+  {
+    companyName: "ConvertAPI",
     review:
       "Jagan's internship at ConvertAPI showcased his ability to drive impactful improvements. His strategic contributions led to significant SEO and revenue growth, and his development work expanded the platform's reach.",
     logoPath: "/images/logo1.png",
-    title: "Software Engineer Intern",
-    date: "October 2024 - January 2025",
+    title: "Software Engineer",
+    date: "October 2024 - February 2025",
     responsibilities: [
       "Increased SEO performance by 30% through strategic optimizations.",
       "Successfully deployed affiliate services, contributing to a 15% revenue increase.",
@@ -131,7 +172,7 @@ const expCards = [
     ],
   },
   {
-    companyName: "LectureNotes", // ✅ Added for styled text
+    companyName: "LectureNotes",
     review:
       "Jagan made a strong impact at LectureNotes by streamlining DevOps workflows. His automation of CI/CD pipelines and infrastructure optimizations greatly improved deployment speed and reliability.",
     logoPath: "/images/logo2.png",
@@ -143,7 +184,7 @@ const expCards = [
     ],
   },
   {
-    companyName: "Intel", // ✅ Added for styled text
+    companyName: "Intel",
     review:
       "Jagan's time at Intel was marked by a strong drive to learn and improve. His collaborative approach and testing efforts led to measurable improvements in product quality and efficiency.",
     logoPath: "/images/logo3.png",
@@ -155,7 +196,7 @@ const expCards = [
     ],
   },
   {
-    companyName: "ZinfyTechWeb", // ✅ Added for styled text
+    companyName: "ZinfyTechWeb",
     review:
       "Jagan demonstrated strong backend development skills at ZinfyTechWeb Solutions. His work on automation and scalable systems significantly enhanced development efficiency.",
     logoPath: "/images/logo4.png",
@@ -167,7 +208,6 @@ const expCards = [
     ],
   },
 ];
-
 
 const expLogos = [
   {
@@ -211,16 +251,19 @@ const testimonials = [
 
 const socialImgs = [
   {
-    name: "insta",
-    imgPath: "/images/insta.png",
+    name: "medium",
+    link: "https://medium.com/@virodev",
+    icon: FaMedium,
   },
   {
-    name: "medium",
-    imgPath: "/images/x.png",
+    name: "github",
+    link: "https://github.com/techySPHINX",
+    icon: FaGithub,
   },
   {
     name: "linkedin",
-    imgPath: "/images/linkedin.png",
+    link: "https://www.linkedin.com/in/jagan-kumar-hotta-502a76270/",
+    icon: FaLinkedin,
   },
 ];
 
